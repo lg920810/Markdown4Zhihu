@@ -38,8 +38,6 @@
 
 
 
-
-
 ### Deep InfoMax (DIM) — Microsoft Research (ICLR2019)
 
 在介绍DIM方法前，我们先了解一些基本概念(熵，条件熵，互信息)，这个过程可能比较吃力，但是对contrastive learning将会有本质认识。
@@ -79,13 +77,11 @@
 H(X\vert Y)&=\sum_{j=1}^m p_j H(X\vert Y=y_j)
 \\&=\sum_{j=1}^m p_j \cdot [-\sum_{i=1}^n (\frac{p_{ij}}{p_j}\log{\frac{p_{ij}}{p_j}})] =-\sum_{j=1}^m \sum_{i=1}^n (p_{ij}\log{\frac{p_{ij}}{p_j}})
 \\&=\sum_{j=1}^m \sum_{i=1}^n (p_{ij}\log{ \frac{p_j}{p_{ij}}})
-
 \end{align}
 " alt="\begin{align}
 H(X\vert Y)&=\sum_{j=1}^m p_j H(X\vert Y=y_j)
 \\&=\sum_{j=1}^m p_j \cdot [-\sum_{i=1}^n (\frac{p_{ij}}{p_j}\log{\frac{p_{ij}}{p_j}})] =-\sum_{j=1}^m \sum_{i=1}^n (p_{ij}\log{\frac{p_{ij}}{p_j}})
 \\&=\sum_{j=1}^m \sum_{i=1}^n (p_{ij}\log{ \frac{p_j}{p_{ij}}})
-
 \end{align}
 " class="ee_img tr_noresize" eeimg="1">
 
