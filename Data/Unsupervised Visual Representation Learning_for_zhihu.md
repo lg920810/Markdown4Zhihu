@@ -34,7 +34,7 @@
 
 下图是监督学习和无监督学习在Imagenet数据集上的结果对比，图中左边蓝色框内是目前在添加额外数据的基础上得到的最好结果，top1为88.5%，top5则达到了98.7%。而未添加额外数据监督学习方法的top1大概在85.8%左右，无监督学习方法为71.7%。从数据可以看出两者的差距较大，接近14%，但相对于早期的无监督方法，现在已经从top1 54%提升到71.7%，有17.7%的提升，可见提升幅度还是很大的。
 
-<img src="https://raw.githubusercontent.com/miracleyoo/Markdown4Zhihu/master/Data/Unsupervised Visual Representation Learning/image-20201013164622334.png" alt="image-20201013164622334" style="zoom:80%;" />
+<img src="https://github.com/lg920810/Markdown4Zhihumaster/Data/Unsupervised Visual Representation Learning/image-20201013164622334.png" alt="image-20201013164622334" style="zoom:80%;" />
 
 
 
@@ -296,7 +296,7 @@ KL(p(z)||q(z))&=\int {1 \over \sqrt{2\pi}\sigma} \exp{-{(z-\mu)^2}\over{2\sigma^
 
 #### **DIM 方法**
 
-<img src="https://raw.githubusercontent.com/miracleyoo/Markdown4Zhihu/master/Data/Unsupervised Visual Representation Learning/image-20201019140017197.png" alt="image-20201019140017197" style="zoom: 50%;" />
+<img src="https://github.com/lg920810/Markdown4Zhihumaster/Data/Unsupervised Visual Representation Learning/image-20201019140017197.png" alt="image-20201019140017197" style="zoom: 50%;" />
 
 Deep Infomax为更好的获取图像的特征采取了全局特征和局部特征共同利用的方式，所以需要两个Discriminator用来生成两个均值和两个方差参与到整个网络的优化当中，网络输出的就是均值和方差，和VAE方法一致。正负样本的选择采用shuffle的方式，所有的参数均保存在内存中，仅适用于小数据集。
 
@@ -306,7 +306,7 @@ Deep Infomax为更好的获取图像的特征采取了全局特征和局部特�
 
 CPC(Contrastive Predictive Coding)首次提出infoNCE，后续很多方法都使用其作为损失函数。
 
-<img src="https://raw.githubusercontent.com/miracleyoo/Markdown4Zhihu/master/Data/Unsupervised Visual Representation Learning/image-20201106150822852.png" alt="image-20201106150822852" style="zoom:50%;" />
+<img src="https://github.com/lg920810/Markdown4Zhihumaster/Data/Unsupervised Visual Representation Learning/image-20201106150822852.png" alt="image-20201106150822852" style="zoom:50%;" />
 
 <img src="https://www.zhihu.com/equation?tex=I(x,c)=\sum_{x,c}p(x,c)\log{p(x|c) \over p(x)}
 \tag 1
@@ -355,13 +355,13 @@ CMC(Contrastive Multiview Coding) 有对CPC中互信息与infoNCE关系的证明
 
 
 
-<img src="https://raw.githubusercontent.com/miracleyoo/Markdown4Zhihu/master/Data/Unsupervised Visual Representation Learning/image-20201104133811981.png" alt="image-20201104133811981" style="zoom:67%;" />
+<img src="https://github.com/lg920810/Markdown4Zhihumaster/Data/Unsupervised Visual Representation Learning/image-20201104133811981.png" alt="image-20201104133811981" style="zoom:67%;" />
 
 
 
 * **互信息下界的证明**
 
-<img src="https://raw.githubusercontent.com/miracleyoo/Markdown4Zhihu/master/Data/Unsupervised Visual Representation Learning/image-20201104133915751.png" alt="image-20201104133915751" style="zoom:80%;" />
+<img src="https://github.com/lg920810/Markdown4Zhihumaster/Data/Unsupervised Visual Representation Learning/image-20201104133915751.png" alt="image-20201104133915751" style="zoom:80%;" />
 
 
 
@@ -438,7 +438,7 @@ CMC(Contrastive Multiview Coding) 有对CPC中互信息与infoNCE关系的证明
 
 为了减少计算量，这篇文章提出了memory bank的概念：维护一个memory bank  <img src="https://www.zhihu.com/equation?tex=\mathbf{V}=\lbrace\mathbf{v_j}\rbrace" alt="\mathbf{V}=\lbrace\mathbf{v_j}\rbrace" class="ee_img tr_noresize" eeimg="1"> ，使用样本特征 <img src="https://www.zhihu.com/equation?tex=\mathbf{f}_i=f_\theta(x_i)" alt="\mathbf{f}_i=f_\theta(x_i)" class="ee_img tr_noresize" eeimg="1">  来更新memory  <img src="https://www.zhihu.com/equation?tex=\mathbf{f}_i\to\mathbf{v}_i" alt="\mathbf{f}_i\to\mathbf{v}_i" class="ee_img tr_noresize" eeimg="1">  。
 
-![image-20201015140102105](https://raw.githubusercontent.com/miracleyoo/Markdown4Zhihu/master/Data/Unsupervised Visual Representation Learning/image-20201015140102105.png)
+![image-20201015140102105](https://github.com/lg920810/Markdown4Zhihumaster/Data/Unsupervised Visual Representation Learning/image-20201015140102105.png)
 
 memory bank 开辟了和训练集数量同样的内存，用于存储每张图像经过网络提取的特征向量。在训练中，每个mini-batch都需要从memory bank中随机采样，memory bank中保存的向量通过momentum的方式更新。
 
@@ -461,7 +461,7 @@ memory bank 开辟了和训练集数量同样的内存，用于存储每张图�
 
 同时引出现在的方法大多数是本质都是利用编码器构建字典，且基于contrastive loss进行优化。作者认为这个思路正确，但需要关注两个问题：
 
-<img src="https://raw.githubusercontent.com/miracleyoo/Markdown4Zhihu/master/Data/Unsupervised Visual Representation Learning/image-20201014165256299.png" alt="image-20201014165256299" style="zoom: 67%;" />
+<img src="https://github.com/lg920810/Markdown4Zhihumaster/Data/Unsupervised Visual Representation Learning/image-20201014165256299.png" alt="image-20201014165256299" style="zoom: 67%;" />
 
 **Inconsistent 理解** 
 
@@ -501,19 +501,19 @@ TODO: 这部分内容太多太杂了，不同的paper都对contrastive loss有�
 
 文中该部分主要介绍了三部分内容，篇幅不长，分别为Loss function，Pretext tasks 和 Contrastive learning vs pretext tasks。loss function之前已经介绍过了，但是下文所提到的生成对抗网络和NCE的关系还需要进一步研究。
 
-<img src="https://raw.githubusercontent.com/miracleyoo/Markdown4Zhihu/master/Data/Unsupervised Visual Representation Learning/image-20201015112904471.png" alt="image-20201015112904471" style="zoom: 67%;" />
+<img src="https://github.com/lg920810/Markdown4Zhihumaster/Data/Unsupervised Visual Representation Learning/image-20201015112904471.png" alt="image-20201015112904471" style="zoom: 67%;" />
 
 Pretext tasks 可以理解为是一种为达到特定训练任务而设计的间接任务，或者说就是通过self-supervised的方式进行预训练模型的训练，同样的利用contrastive loss进行训练，再fine-tuning到下游任务。通常会利用图像本身的操作构造“标签”，从而学习encoder。其应用有图像复原，图像去噪，图像着色等。
 
 而Contrastive learning和pretext tasks的关系原文有如下描述：
 
-<img src="https://raw.githubusercontent.com/miracleyoo/Markdown4Zhihu/master/Data/Unsupervised Visual Representation Learning/image-20201015114157944.png" alt="image-20201015114157944" style="zoom: 63%;" />
+<img src="https://github.com/lg920810/Markdown4Zhihumaster/Data/Unsupervised Visual Representation Learning/image-20201015114157944.png" alt="image-20201015114157944" style="zoom: 63%;" />
 
 该段表示不同的pretext task都是基于不同变种的contrastive loss function的。比如Instance Discrimination方法与基于实例的任务Discriminative unsupervised feature learning with convolutional neural networks相关，还有NCE。
 
 #### **3. Method**
 
-<img src="https://raw.githubusercontent.com/miracleyoo/Markdown4Zhihu/master/Data/Unsupervised Visual Representation Learning/image-20201019165110923.png" alt="image-20201019165110923" style="zoom:50%;" />
+<img src="https://github.com/lg920810/Markdown4Zhihumaster/Data/Unsupervised Visual Representation Learning/image-20201019165110923.png" alt="image-20201019165110923" style="zoom:50%;" />
 
 总的来说MoCo方法的改进主要相对于基于memory bank的方法而言的，上文已经介绍memory bank的操作方式。MoCo引入一个新的encoder，如上图称为momentum encoder，用于负样本(key)的生成。由于它也是个encoder，因此也需要参数更新，后面我们再介绍更新方式。我们先顺序的解答几个问题：
 
@@ -538,7 +538,7 @@ Q4: 初始化使用随机初始化方式，长度为65536，batch size为256时�
 
 **A5: Shuffling BN的作用是什么？**
 
-​                                       <img src="https://raw.githubusercontent.com/miracleyoo/Markdown4Zhihu/master/Data/Unsupervised Visual Representation Learning/image-20201027212611546.png" alt="image-20201027212611546" style="zoom:75%;" />
+​                                       <img src="https://github.com/lg920810/Markdown4Zhihumaster/Data/Unsupervised Visual Representation Learning/image-20201027212611546.png" alt="image-20201027212611546" style="zoom:75%;" />
 
 Q5: 文章中提到使用BN会使得模型快速收敛，原因是模型学到了规律而不是真的图像表征。这可能是因为一个batch中的样本通信会泄露信息。之前的做法为：当使用多GPU训练的时候，对每个GPU上的mini-batch进行BN操作，然后将样本再分发到每个GPU中；现在的做法为：对于momentum encoder( <img src="https://www.zhihu.com/equation?tex=f_k" alt="f_k" class="ee_img tr_noresize" eeimg="1"> )，在分配到其他GPU前打乱当前mini-batch的样本顺序，然后利用 <img src="https://www.zhihu.com/equation?tex=f_k" alt="f_k" class="ee_img tr_noresize" eeimg="1"> 生成编码向量进行normalize后再还原顺序，而对于encoder( <img src="https://www.zhihu.com/equation?tex=f_q" alt="f_q" class="ee_img tr_noresize" eeimg="1"> )不变。这样可以保证用于计算的 <img src="https://www.zhihu.com/equation?tex=query" alt="query" class="ee_img tr_noresize" eeimg="1"> 和 <img src="https://www.zhihu.com/equation?tex=key_+" alt="key_+" class="ee_img tr_noresize" eeimg="1"> 来自两个不同的子集。
 
@@ -556,21 +556,21 @@ MoCo: 一个memory内选择负样本，区别去memory bank，样本本身不同
 
 下图证明了在Imagenet上采用MoCo方式的有效性，同时作者还在detection任务上做了实验作为验证。
 
-<img src="https://raw.githubusercontent.com/miracleyoo/Markdown4Zhihu/master/Data/Unsupervised Visual Representation Learning/image-20201028222309206.png" alt="image-20201028223010687" style="zoom: 55%;" />
+<img src="https://github.com/lg920810/Markdown4Zhihumaster/Data/Unsupervised Visual Representation Learning/image-20201028222309206.png" alt="image-20201028223010687" style="zoom: 55%;" />
 
 ##### **Ablation: momentum**
 
-<img src="https://raw.githubusercontent.com/miracleyoo/Markdown4Zhihu/master/Data/Unsupervised Visual Representation Learning/image-20201028223010687.png" alt="image-20201028223010687" style="zoom: 50%;" />
+<img src="https://github.com/lg920810/Markdown4Zhihumaster/Data/Unsupervised Visual Representation Learning/image-20201028223010687.png" alt="image-20201028223010687" style="zoom: 50%;" />
 
 ##### **Comparison with previous results**
 
-<img src="https://raw.githubusercontent.com/miracleyoo/Markdown4Zhihu/master/Data/Unsupervised Visual Representation Learning/image-20201028223123599.png" alt="image-20201028223123599" style="zoom:50%;" />
+<img src="https://github.com/lg920810/Markdown4Zhihumaster/Data/Unsupervised Visual Representation Learning/image-20201028223123599.png" alt="image-20201028223123599" style="zoom:50%;" />
 
 ##### **MoCo v2 results**
 
 MoCo v2是在SimCLR提出projection head和data augumentation后，在原模型基础上加了projection head和相应的数据增强，并使用了cosine lrschedule，迭代次数由200增加至800后得到的结果。
 
-<img src="https://raw.githubusercontent.com/miracleyoo/Markdown4Zhihu/master/Data/Unsupervised Visual Representation Learning/image-20201028224144291.png" alt="image-20201028224144291" style="zoom:60%;" />
+<img src="https://github.com/lg920810/Markdown4Zhihumaster/Data/Unsupervised Visual Representation Learning/image-20201028224144291.png" alt="image-20201028224144291" style="zoom:60%;" />
 
 MoCo做了很多的比对实验，有兴趣的话可以看原文。
 
@@ -586,7 +586,7 @@ MoCo做了很多的比对实验，有兴趣的话可以看原文。
 
 #### 1. Introduction
 
-<img src="https://raw.githubusercontent.com/miracleyoo/Markdown4Zhihu/master/Data/Unsupervised Visual Representation Learning/image-20201104103636873.png" alt="image-20201104103636873" style="zoom:60%;" />
+<img src="https://github.com/lg920810/Markdown4Zhihumaster/Data/Unsupervised Visual Representation Learning/image-20201104103636873.png" alt="image-20201104103636873" style="zoom:60%;" />
 
 作者表示在主流的用于visual representations方法中(包括监督学习和无监督学习)，主要有两种学习机制：生成学习和判别学习，这和机器学习就很一致了。生成模型通过学习 <img src="https://www.zhihu.com/equation?tex=P(X,Y)" alt="P(X,Y)" class="ee_img tr_noresize" eeimg="1"> 的联合概率分布，然后求出条件概率分布 <img src="https://www.zhihu.com/equation?tex=P(Y|X)=P(X,Y)/P(X)" alt="P(Y|X)=P(X,Y)/P(X)" class="ee_img tr_noresize" eeimg="1"> ; 而判别模型则直接计算 <img src="https://www.zhihu.com/equation?tex=P(Y|X)" alt="P(Y|X)" class="ee_img tr_noresize" eeimg="1"> 。文中对CV中的生成学习总结成pixel-level generation，但细分的话有Auto-regressive (AR) Model，Flow-based Model，Auto-encoding (AE) Model，Hybrid Generative Models等。而在CV中的判别学习就是指那些基于contrastive learning的方法。
 
@@ -598,7 +598,7 @@ MoCo做了很多的比对实验，有兴趣的话可以看原文。
 
 * **Data augmentation**
 
-<img src="https://raw.githubusercontent.com/miracleyoo/Markdown4Zhihu/master/Data/Unsupervised Visual Representation Learning/image-20201104133042042.png" alt="image-20201104133042042" style="zoom:67%;" />
+<img src="https://github.com/lg920810/Markdown4Zhihumaster/Data/Unsupervised Visual Representation Learning/image-20201104133042042.png" alt="image-20201104133042042" style="zoom:67%;" />
 
 * **Training Detail (Large Batchsize)**
 
@@ -643,7 +643,7 @@ L_{BYOL}&={\Vert q-k_+ \Vert}_2^2 =  q^2 + k_+^2 - 2q \cdot k  \\
 
 下图为该方法的网络结构图，现在通常把MLP也就是projection head的部分单拿出来作为一部分，其实也可以将resnet+MLP作为整体的网络结构来看。其中target network也就是 <img src="https://www.zhihu.com/equation?tex=t^{'}" alt="t^{'}" class="ee_img tr_noresize" eeimg="1"> 的更新策略同MoCo一致。
 
-<img src="https://raw.githubusercontent.com/miracleyoo/Markdown4Zhihu/master/Data/Unsupervised Visual Representation Learning/BYOL_network.jpg" alt="image-20201109112918642" style="zoom: 67%;" />
+<img src="https://github.com/lg920810/Markdown4Zhihumaster/Data/Unsupervised Visual Representation Learning/BYOL_network.jpg" alt="image-20201109112918642" style="zoom: 67%;" />
 
 
 
@@ -651,15 +651,15 @@ L_{BYOL}&={\Vert q-k_+ \Vert}_2^2 =  q^2 + k_+^2 - 2q \cdot k  \\
 
 * **Unsupervise learning on ImageNet**
 
-<img src="https://raw.githubusercontent.com/miracleyoo/Markdown4Zhihu/master/Data/Unsupervised Visual Representation Learning/image-20201109131345064.png" alt="image-20201109131345064" style="zoom: 67%;" />
+<img src="https://github.com/lg920810/Markdown4Zhihumaster/Data/Unsupervised Visual Representation Learning/image-20201109131345064.png" alt="image-20201109131345064" style="zoom: 67%;" />
 
 * **Semi-supervised learning on Imagenet**
 
-<img src="https://raw.githubusercontent.com/miracleyoo/Markdown4Zhihu/master/Data/Unsupervised Visual Representation Learning/image-20201109131458054.png" alt="image-20201109131458054" style="zoom:67%;" />
+<img src="https://github.com/lg920810/Markdown4Zhihumaster/Data/Unsupervised Visual Representation Learning/image-20201109131458054.png" alt="image-20201109131458054" style="zoom:67%;" />
 
 * **Ablation study (Batch size and Transformation)**
 
-  <img src="https://raw.githubusercontent.com/miracleyoo/Markdown4Zhihu/master/Data/Unsupervised Visual Representation Learning/image-20201109132035108.png" alt="image-20201109132035108" style="zoom: 67%;" />
+  <img src="https://github.com/lg920810/Markdown4Zhihumaster/Data/Unsupervised Visual Representation Learning/image-20201109132035108.png" alt="image-20201109132035108" style="zoom: 67%;" />
 
 
 
@@ -669,7 +669,7 @@ L_{BYOL}&={\Vert q-k_+ \Vert}_2^2 =  q^2 + k_+^2 - 2q \cdot k  \\
 
 ### **On Mutual Infomation Maximization For Representation Learning (ICLR2020 Google Research)**
 
-<img src="https://raw.githubusercontent.com/miracleyoo/Markdown4Zhihu/master/Data/Unsupervised Visual Representation Learning/image-20201105171154188.png" alt="image-20201105171154188" style="zoom: 55%;" />
+<img src="https://github.com/lg920810/Markdown4Zhihumaster/Data/Unsupervised Visual Representation Learning/image-20201105171154188.png" alt="image-20201105171154188" style="zoom: 55%;" />
 
 本文的观点是获取良好的特征表达并不仅仅依赖于互信息，而是归纳偏差。后续文章证明了常用的infoNCE损失函数的优化目标并不是MI的下界，之前的CPC文章首次提出infoNCE证明了是优化MI的下界，目前有些凌乱了。
 
